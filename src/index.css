@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+body{
+    font-family: 'Cairo', sans-serif !important;
+}
+.bg-primary {
+    background-color: #8A4FF3;
+}
+.text-primary {
+    color: #8A4FF3;
+}
+button{
+    cursor: pointer;
+}
+.div::before{
+    content: "";
+    position: absolute;
+    top: -60%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    opacity: 0.2;  
+    
+     
+}
