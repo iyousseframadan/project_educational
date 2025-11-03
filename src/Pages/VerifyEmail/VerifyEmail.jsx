@@ -102,7 +102,7 @@ export default function VerifyEmail() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-purple-50 via-purple-100 to-indigo-100 p-4"
+      className="flex flex-col items-center justify-center min-h-screen bg-linear-to-br from-purple-50 via-purple-100 to-indigo-100 p-4"
       dir="rtl"
     >
       <div className="text-center mb-8">
@@ -157,7 +157,7 @@ export default function VerifyEmail() {
           <button
             type="submit"
             disabled={loading || !formik.isValid}
-            className="w-full p-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full p-4 bg-linear-to-r from-purple-600 to-indigo-600 text-white font-bold rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? (
               <svg

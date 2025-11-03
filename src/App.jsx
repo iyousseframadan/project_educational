@@ -8,9 +8,9 @@ import Login from "./Pages/Login/Login.jsx";
 import Register from "./Pages/Register/Register.jsx";
 import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword.jsx";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword.jsx";
-// import VerifyEmail from "./Pages/VerifyEmail/VerifyEmail.jsx"; // <<< 1. مش محتاجينه
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute.jsx";
 import CategoryPage from "./Pages/Category/Category.jsx";
+import Dashboard from "./Pages/Student/Dashboard.jsx"; // صفحة لوحة التحكم الجديدة
 
 // 2. تعريف الراوتر
 const router = createBrowserRouter([
@@ -38,45 +38,93 @@ const router = createBrowserRouter([
         path: "reset-password",
         element: <ResetPassword />,
       },
-      // {
-      //   path: "verify-email", // <<< 2. شيلنا الراوت ده
-      //   element: <VerifyEmail />,
-      // },
       {
         path: "category/:id",
         element: <CategoryPage />,
-      },
+      }, // ==================================== //             الروابط المحمية // ====================================
       {
-        path: "my-plan",
+        path: "dashboard",
         element: (
           <ProtectedRoute>
-            <div className="p-8" dir="rtl">
-              <h1 className="text-3xl font-bold">صفحة خطتي (محمية)</h1>
-              <p>هذه الصفحة لا يمكن الوصول إليها إلا بعد تسجيل الدخول.</p>
-            </div>
+            <Dashboard />{" "}
           </ProtectedRoute>
         ),
       },
+      {
+        path: "my-plan", // تم توجيهه مؤقتاً للداشبورد
+        element: (
+          <ProtectedRoute>
+            <Dashboard />{" "}
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "my-courses", // مسار كورساتي (تحتاج بناء صفحة my-courses.jsx)
+        element: (
+          <ProtectedRoute>
+            {" "}
+            <div className="p-8" dir="rtl">
+              {" "}
+              <h1 className="text-3xl font-bold">
+                صفحة كورساتي (تحتاج بناء)
+              </h1>{" "}
+            </div>{" "}
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "my-transfers", // مسار المعاملات (تحتاج بناء صفحة my-transfers.jsx)
+        element: (
+          <ProtectedRoute>
+            {" "}
+            <div className="p-8" dir="rtl">
+              {" "}
+              <h1 className="text-3xl font-bold">
+                سجل المعاملات (تحتاج بناء)
+              </h1>{" "}
+            </div>{" "}
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "cart", // السلة (افتراضياً تحتاج مصادقة للدفع)
+        element: (
+          <ProtectedRoute>
+            {" "}
+            <div className="p-8" dir="rtl">
+              {" "}
+              <h1 className="text-3xl font-bold">صفحة السلة (محمية)</h1>{" "}
+            </div>{" "}
+          </ProtectedRoute>
+        ),
+      }, // ==================================== //             الروابط العامة // ====================================
       {
         path: "featured-courses",
         element: (
-          <ProtectedRoute>
-            <div className="p-8" dir="rtl">
-              <h1 className="text-3xl font-bold">
-                صفحة الدورات المميزة (محمية)
-              </h1>
-            </div>
-          </ProtectedRoute>
+          <div className="p-8" dir="rtl">
+            {" "}
+            <h1 className="text-3xl font-bold">
+              صفحة الدورات المميزة (عامة){" "}
+            </h1>{" "}
+          </div>
         ),
       },
       {
-        path: "cart",
+        path: "about-us",
         element: (
-          <ProtectedRoute>
-            <div className="p-8" dir="rtl">
-              <h1 className="text-3xl font-bold">صفحة السلة (محمية)</h1>
-            </div>
-          </ProtectedRoute>
+          <div className="p-8" dir="rtl">
+            {" "}
+            <h1 className="text-3xl font-bold">من نحن (تحتاج بناء)</h1>{" "}
+          </div>
+        ),
+      },
+      {
+        path: "articles",
+        element: (
+          <div className="p-8" dir="rtl">
+            {" "}
+            <h1 className="text-3xl font-bold">المقالات (تحتاج بناء)</h1>{" "}
+          </div>
         ),
       },
     ],
